@@ -1,0 +1,137 @@
+/* DepartmentsPage.css */
+
+.departments {
+  text-align: center;
+  background-color: #EDEDED;
+  padding: 50px 20px;
+  min-height: 100vh;
+}
+
+.departments h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.department-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.department-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.department-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.department-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.department-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.department-card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.job-list {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.job-card {
+  background-color: #E7E7E7;
+  padding: 10px 15px;
+  margin: 6px 0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.job-card:hover {
+  background-color: #e0e0e0;
+}
+
+/* ───────────────────────────── */
+/* ✅ Responsive Styles Below    */
+/* ───────────────────────────── */
+@media (max-width: 768px) {
+  .departments {
+    padding: 40px 15px;
+  }
+
+  .departments h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .department-card {
+    padding: 16px;
+  }
+
+  .department-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .department-card p,
+  .job-card {
+    font-size: 0.9rem;
+  }
+
+  .department-icon {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .departments {
+    padding: 30px 10px;
+  }
+
+  .departments h2 {
+    font-size: 1.3rem;
+  }
+
+  .department-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .department-card {
+    padding: 14px;
+  }
+
+  .department-card h3 {
+    font-size: 1rem;
+  }
+
+  .job-card {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,181 @@
+/* .register-button {
+    font-size: 18px;
+    width:165px;
+    height:7vh;
+    border-radius: 6px;
+    border-style: none;
+    background: #fccc04;
+    color:white;
+} */
+
+.container-signup{
+    width: 708px;
+    position: fixed;
+    height: 100vh;
+    /* box-sizing: border-box; */
+    background-size: cover;
+    background-image: url('../assets/formDigital.jpg');
+    margin: 0rem;
+    padding: 0;
+    /* position: relative; */
+
+}
+.container-signup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);  /*Dark overlay */
+} 
+.entire-form {
+    background: rgba(0, 0, 0, 0.82); /* Dark transparent background */
+    backdrop-filter: blur(0.6px); /* Blurs background for a soft glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
+    width: 26rem;
+    height: 60vh;
+    margin-left: -2rem;
+    border-radius: 8px; /* Slightly rounded edges */
+    padding: 20px; /* Adds spacing inside */
+    color: white; /* Ensure text is visible */
+}
+.entire-form h3{
+    padding-top: 2.70rem;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid white;
+}
+.LoginPage{
+    margin-left: 53rem;
+    margin-top: 12rem;
+    /* border: 1px solid #9FA3B2; */
+    /* margin-right: -20px; */
+    /* box-shadow: 0px 4px 10px #9FA3B2; */
+}
+.register-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: -4rem;
+}
+.register-form label{
+    font-size: 16px;
+    margin-right: 9.8rem;
+}
+.register-form input{
+    margin-left: 4rem;
+    padding-left: 7px;
+    font-size: 12px;
+    border-style: none;
+    width: 284px;
+    height: 7vh;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+}
+.register-form button{
+    margin-left: 4.3rem;
+    font-size: 1rem;
+    width:295px;
+    height:5vh;
+    border-radius: 3px;
+    border-style: none;
+    background: #fccc04;
+    color:white;
+    text-align: center;
+    padding-bottom: 1.1rem;
+    padding-top: 0.3rem;
+}
+.last-line{
+    margin-top: 4rem;
+    display: inline;
+    font-size: 16px;
+}
+.register-path{
+    text-decoration: underline;
+    color: #e4b40c;
+}
+.password-recover{
+    font-size: 0.79rem;
+    margin-top: 0.28rem;
+    margin-bottom: 1.3rem;
+}
+.register-button{
+    font-size: 16px;
+    width:165px;
+    height:4.7vh;
+    border-radius: 6px;
+    border-style: none;
+    background:#e4b40c;
+    color:white;
+}
+.register-path:hover{
+    cursor: pointer;
+}
+/* Success Popup */
+.success-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #F2F2F2;
+    color: #D9AB0B;
+    border: 1px solid #c3e6cb;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width:250px;
+    z-index: 1000;
+    font-weight: bold;
+}
+
+/* Success Message Content */
+.success-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Close Button */
+.success-popup .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #D9AB0B;
+    max-width: 0.3rem;
+    max-height: 0.98rem;
+    margin-top: -4rem;
+}
+
+/* Thin Timer Bar */
+.success-timer {
+    width: 100%;
+    height: 4px;
+    background: #D9AB0B;
+    animation: fadeOut 3s linear forwards;
+}
+
+/* Timer Animation */
+@keyframes fadeOut {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+/* .close-btn-success{
+    margin-top: -1.4rem;
+} */
+.success-info{
+    display: flex;
+    max-width: 100%;
+    font-size: 0.76rem;
+    color:#e4b40c;
+}

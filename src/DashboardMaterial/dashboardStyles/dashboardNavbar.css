@@ -1,0 +1,86 @@
+.navbar-container{
+    width: 100%;
+    min-height:4vh;
+    background-color: #D9D9D9;
+}
+.navbar-header{
+    position: fixed;
+    z-index: 1000;
+    max-width:500rem;
+    min-height: 8vh;
+    background-color: #FFFFFF;
+    margin-left: -3.1rem;
+}
+.navbar-content{
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    min-width: 12rem;
+    min-height: 4vh;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right:1.4rem;
+    padding-top: 0.4rem;
+    margin-top:0.1rem;
+    color: #ccc;
+}
+.search-border{
+    border: 1px solid #ccc;
+    background-color: #ECECEC;
+    border-radius: 8rem;
+    max-width: 8.8rem;
+    min-height: 2.95vh;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right:0.291rem;
+    padding-top: 0.12rem;
+    margin-top:0.78rem;
+    color: #ccc;
+    margin-left: 8rem;
+    text-align: center;
+    padding-bottom: 0.29rem;
+}
+.search-icon{
+    color:#B5B7B9;
+    position: absolute;
+    margin-top: 0.12rem;
+    margin-right: 6.29rem;
+    margin-left: 3.9rem;
+    min-width: 2rem;
+    min-height: 2vh;
+}
+/* .notification-icon{
+    /* position: absolute; 
+    max-width: 22rem;
+    min-height: 2vh;
+    /* margin-top: -79rem; 
+    margin-right:2rem;
+    margin-left: 0.4rem;
+    color: rgb(63, 62, 62);
+} */
+.notification-bar{
+    margin-top: -1.2rem;
+    min-width: 6rem;
+    max-height: 4vh;
+    margin-left: 70rem;
+    /* border: 1px solid #ccc; */
+    /* margin-left: 25rem;
+    justify-content: left;
+    padding-right: 0.2rem; */
+}
+.notification-bar p{
+    min-width:12rem;
+    /* margin-left: 29rem; */
+    max-height: 3vh;
+    margin-top: -0.5vh;
+}
+.avatar-icon{
+    margin-left: -5rem;
+}
+.right-content{
+    min-width: 18rem;
+    min-height: 2vh;
+    display: flex;
+}
+.notification-icon{
+   margin-right: 0.5rem; 
+}

@@ -1,0 +1,73 @@
+.dashboard-container {
+    max-width: 1000rem;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .stats-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 22%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .card-icon {
+    font-size: 24px;
+    color: black;
+  }
+  
+  .card h2 {
+    margin: 5px 0;
+  }
+  
+  .positive {
+    color: green;
+  }
+  
+  .negative {
+    color: red;
+  }
+  
+  .chart-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .overview-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .view-details {
+    float: right;
+    color: gold;
+    cursor: pointer;
+  }
+  
+  .overview-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+  }
+  
+  .overview-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  

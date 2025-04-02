@@ -1,0 +1,44 @@
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 190px;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .sidebar.collapsed {
+    width: 64px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .sidebar li:hover {
+    color: gray;
+  }
+  
+  .sidebar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .logout-link{
+    color: white;
+    text-decoration: none;
+  }
+  

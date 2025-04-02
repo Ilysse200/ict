@@ -1,0 +1,82 @@
+/* Departments.css */
+
+.departments-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin-left: 13rem;
+  }
+  
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header-row h2 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .add-btn {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 12rem;
+  }
+  
+  .department-form {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 500px;
+  }
+  
+  .department-form input {
+    padding: 0.6rem;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .department-form button {
+    background-color: #fccc04;
+    border: none;
+    padding: 0.6rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .departments-table {
+    max-width:100%;
+    border-collapse: collapse;
+  }
+  
+  .departments-table th,
+  .departments-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+  .actions-cell{
+    display: flex;
+    margin-top: -1rem;
+    position: relative;
+  }
+  
+  .icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    max-width:3rem;
+    max-height: 2.7rem;
+    margin-right: 0.5rem;
+
+  }
