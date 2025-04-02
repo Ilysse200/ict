@@ -1,5 +1,5 @@
 import React from 'react'
-import './dashboardStyles/DashboardNavbar.css'
+import './dashboardStyles/dashboardNavbar.css'
 
 import { CiSearch } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
