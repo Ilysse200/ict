@@ -8,7 +8,9 @@ import DashboardView from "./DashboardMaterial/DashboardView"
 import WelcomePage from './UserContent/WelcomePage'
 import DepartmentsPage from "./UserContent/DepartmentPage"
 import ApplyPage from "./UserContent/Application"
-import UserLayout from "./UserContent/userLayout"
+import UserLayout from "./UserContent/EnduserLayout"
+
+
 function App() {
   return(
   <BrowserRouter>
