@@ -203,5 +203,91 @@
         width: 0%;
     }
 }
+/* Responsive for tablets and smaller screens */
+@media screen and (max-width: 1024px) {
+    .container-signup {
+      min-width: 100%;
+      height: auto;
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 1rem;
+    }
+  
+    .LoginPage {
+      margin: 0 auto;
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .entire-form2 {
+      width: 100%;
+      min-width: auto;
+      height: auto;
+      padding: 1.5rem;
+      margin-left: 0;
+    }
+  
+    .login-form {
+      margin-left: 0;
+      width: 100%;
+      align-items: center;
+    }
+  
+    .login-form label {
+      margin-right: 0;
+      align-self: flex-start;
+    }
+  
+    .login-form input,
+    .login-form button {
+      margin-left: 0;
+      width: 100%;
+      font-size: 1rem;
+    }
+  
+    .last-line,
+    .password-recover {
+      text-align: center;
+    }
+  
+    .success-popup {
+      right: 10px;
+      left: 10px;
+      max-width: 90%;
+    }
+  
+    .success-content {
+      flex-direction: column;
+      font-size: 0.85rem;
+    }
+  
+    .success-popup .close-btn {
+      margin-top: 0;
+      align-self: flex-end;
+    }
+  }
+  
+  /* Extra responsiveness for mobile */
+  @media screen and (max-width: 600px) {
+    .container-signup {
+      padding: 1rem;
+      background-size: cover;
+      background-position: center;
+    }
+  
+    .entire-form2 h3 {
+      font-size: 1.2rem;
+    }
+  
+    .register-button,
+    .login-form button {
+      height: 6vh;
+      font-size: 1rem;
+    }
+  }
+  
 
 

@@ -92,7 +92,7 @@ function Login({ handleRegister }) {
               onChange={(e) => setPassword(e.target.value)}
             />
             {/* Gender */}
-            <label className='username-text'>Gender</label>
+            <label className='username-tex'>Gender</label>
             <select
               className='password-holder'
               value={gender}
@@ -105,7 +105,7 @@ function Login({ handleRegister }) {
             </select>
 
             {/* Date of Birth */}
-            <label className='username-text'>Date of Birth</label>
+            <label className='username-texts'>Date of Birth</label>
             <input
               type='date'
               className='password-holder'
