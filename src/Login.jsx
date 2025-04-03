@@ -10,6 +10,10 @@ function Login({ handleRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
+  //Added new states to add them in the forms
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [gender, setGender] = useState('');
+  const [dob, setDob] = useState('');
 
   const handleRegisterClick = async () => {
     try {
@@ -44,7 +48,7 @@ function Login({ handleRegister }) {
                     <div className="success-timer"></div>
                 </div>
             )}
-      <div className='LoginPage'>
+      <div className='LoginPage1'>
         <div className='entire-form'>
           <h3>Register Account</h3>
           <form className='register-form' onSubmit={(e) => e.preventDefault()}>
@@ -56,7 +60,7 @@ function Login({ handleRegister }) {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-
+            {/**This is the password input */}
             <label className='username-text'>Password</label>
             <input
               type='password'
@@ -64,6 +68,27 @@ function Login({ handleRegister }) {
               className='password-holder'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+            {/* Gender */}
+            <label className='username-text'>Gender</label>
+            <select
+              className='password-holder'
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value=''>Select gender</option>
+              <option value='Male'>Male</option>
+              <option value='Female'>Female</option>
+              <option value='Other'>Other</option>
+            </select>
+
+            {/* Date of Birth */}
+            <label className='username-text'>Date of Birth</label>
+            <input
+              type='date'
+              className='password-holder'
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
             />
 
             <button

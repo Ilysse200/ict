@@ -30,26 +30,28 @@
     background: rgba(0, 0, 0, 0.5);  /*Dark overlay */
 } 
 .entire-form {
-    background: rgba(0, 0, 0, 0.82); /* Dark transparent background */
+    background: #E6E6E6;/* Dark transparent background */
     backdrop-filter: blur(0.6px); /* Blurs background for a soft glass effect */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
     width: 26rem;
-    height: 60vh;
+    height: 99vh;
     margin-left: -2rem;
     border-radius: 8px; /* Slightly rounded edges */
     padding: 20px; /* Adds spacing inside */
-    color: white; /* Ensure text is visible */
+    color: black; /* Ensure text is visible */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    
 }
 .entire-form h3{
     padding-top: 2.70rem;
     font-size: 22px;
     text-align: center;
     margin-top: 0.5rem;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
 }
-.LoginPage{
+.LoginPage1{
     margin-left: 53rem;
-    margin-top: 12rem;
+    margin-top: 2.7rem;
     /* border: 1px solid #9FA3B2; */
     /* margin-right: -20px; */
     /* box-shadow: 0px 4px 10px #9FA3B2; */
@@ -65,6 +67,17 @@
     margin-right: 9.8rem;
 }
 .register-form input{
+    margin-left: 4rem;
+    padding-left: 7px;
+    font-size: 12px;
+    border-style: none;
+    width: 284px;
+    height: 7vh;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.register-form select{
     margin-left: 4rem;
     padding-left: 7px;
     font-size: 12px;

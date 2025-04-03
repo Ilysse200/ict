@@ -83,7 +83,7 @@ function SignUp() {
             )}
 
             <div className='LoginPage'>
-                <div className='entire-form'>
+                <div className='entire-form2'>
                     <h3>Login to Account</h3>
                     <form className='login-form' onSubmit={(e) => e.preventDefault()}>
                         <label className='username-text'>Username</label>
