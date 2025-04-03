@@ -25,7 +25,7 @@
     backdrop-filter: blur(0.6px); /* Blurs background for a soft glass effect */
     border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
     min-width: 26rem;
-    min-height: 64vh;
+    min-height: 64.6vh;
     margin-left: -2rem;
     border-radius: 8px; /* Slightly rounded edges */
     padding: 20px; /* Adds spacing inside */
@@ -34,6 +34,7 @@
 }
 .entire-form2 h3{
     padding-top: 2.70rem;
+    padding-bottom: 0.70rem;
     font-size: 22px;
     text-align: center;
     margin-top: 0.5rem;
@@ -53,6 +54,7 @@
     margin-left: -4rem;
 }
 .login-form label{
+    padding-top: 0.5rem;
     font-size: 16px;
     margin-right: 9.6rem;
 }
@@ -61,8 +63,8 @@
     padding-left: 7px;
     font-size: 12px;
     border-style: none;
-    max-width: 284px;
-    max-height: 7vh;
+    width: 284px;
+    height: 7vh;
     border-radius: 5px;
     margin-bottom: 0.3rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -70,8 +72,8 @@
 .login-form button{
     margin-left: 4.3rem;
     font-size: 1rem;
-    max-width:285.7px;
-    max-height:5vh;
+    width:285.7px;
+    height:5vh;
     border-radius: 3px;
     border-style: none;
     background: #fccc04;
