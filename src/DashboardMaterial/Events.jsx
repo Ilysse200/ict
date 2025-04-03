@@ -160,7 +160,7 @@ const EventsView = () => {
         />
 
         <div className="event-buttons">
-          <button type="reset" onClick={() => {
+          <button type="reset" className="cancel-btn" onClick={() => {
             setFormData({
               eventName: '',
               departmentId: '',

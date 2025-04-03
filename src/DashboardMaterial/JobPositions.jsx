@@ -158,7 +158,7 @@ const JobPositionForm = () => {
         </div>
 
         <div className="buttons">
-          <button type="reset">Cancel</button>
+          <button type="reset" className="cancel-btn">Cancel </button>
           <button type="submit" className="submit-btn">Save Position</button>
         </div>
       </form>

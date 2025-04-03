@@ -1,6 +1,6 @@
 /* jobPositionForm.css */
 
-.job-form-container {
+.trainings-form-container {
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
@@ -11,28 +11,44 @@
     margin-left:14rem;
   }
   
-  .job-form h2 {
+  .trainings-form h2 {
     margin-bottom: 1rem;
     color: #222;
   }
   
-  .job-form .row {
+  .input-row {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
+  }
+  .new-input{
+    margin-top: 0.7rem;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+    width: 100%;
+  }
+  .new-inputs{
+    margin-top: 0.7rem;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+    width: 100%;
   }
   
-  .job-form input,
-  .job-form select,
-  .job-form textarea {
+  .trainings-form input,
+  .trainings-form select,
+  .trainings-form textarea {
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    width: 100%;
   }
   
-  .job-form textarea {
+  .trainings-form textarea {
     resize: vertical;
     min-height: 100px;
     margin-bottom: 1rem;
@@ -54,7 +70,8 @@
     cursor: pointer;
     transition: background 0.3s ease;
   }
-  .cancel-btn{
+  /* Cancel Button */
+    .cancel-btn {
     background-color: #eee;
     color: #333;
     padding: 0.7rem 1.5rem;
@@ -66,10 +83,13 @@
   }
   
   .submit-btn:hover {
-    background-color: #444;
+    background-color: #fccc04;
+  }
+  .cancel-btn:hover{
+    background-color: #fccc04;
   }
   
-  .job-list input[type='text'] {
+  .trainings-list input[type='text'] {
     width: 100%;
     padding: 0.75rem;
     margin: 2rem 0 1rem;
@@ -77,12 +97,12 @@
     border-radius: 5px;
   }
   
-  .job-list ul {
+  .trainings-list ul {
     list-style: none;
     padding: 0;
   }
   
-  .job-card {
+  .trainings-card {
     background: #f8f8f8;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -90,11 +110,11 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
   
-  .job-card h3 {
+  .trainings-card h3 {
     margin-bottom: 0.25rem;
   }
   
-  .job-card p {
+  .trainings-card p {
     font-size: 0.95rem;
     color: #555;
     margin-bottom: 0.75rem;
@@ -139,8 +159,9 @@
     cursor: not-allowed;
   }
    */
+
    @media (max-width: 1024px) {
-    .job-form-container {
+    .trainings-form-container {
       margin-left: 2rem;
       margin-right: 2rem;
       padding: 1.5rem;
@@ -153,14 +174,16 @@
   }
   
   @media (max-width: 768px) {
-    .job-form-container {
+    .trainings-form-container {
       margin-left: 1rem;
       margin-right: 1rem;
       padding: 1rem;
       max-width: 100%;
     }
   
-    .job-form .row {
+    .input-row,
+    .new-input,
+    .new-inputs {
       flex-direction: column;
       gap: 0.7rem;
     }
@@ -177,9 +200,10 @@
     }
   
     .actions {
-      margin-left: 0;
+      margin-top: 0.5rem;
       justify-content: center;
-      margin-top: 1rem;
+      flex-direction: row;
+      margin-left: 0;
     }
   
     .actions button {
@@ -187,18 +211,13 @@
       padding: 0.5rem;
     }
   
-    .job-form textarea {
+    .trainings-form textarea {
       min-height: 80px;
-    }
-  
-    .job-list input[type='text'] {
-      font-size: 1rem;
-      padding: 0.6rem;
     }
   }
   
   @media (max-width: 480px) {
-    .job-form-container {
+    .trainings-form-container {
       padding: 0.8rem;
     }
   
@@ -208,22 +227,15 @@
       padding: 0.6rem;
     }
   
-    .job-form input,
-    .job-form select,
-    .job-form textarea {
+    .trainings-form input,
+    .trainings-form select,
+    .trainings-form textarea {
       font-size: 0.95rem;
     }
   
-    .job-card h3 {
-      font-size: 1rem;
-    }
-  
-    .job-card p {
-      font-size: 0.9rem;
-    }
-  
-    .job-list input[type='text'] {
+    .trainings-list input[type='text'] {
       font-size: 0.95rem;
+      padding: 0.6rem;
     }
   }
   

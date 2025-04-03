@@ -9,6 +9,7 @@ import DepartmentsView from './Department';
 import JobPositionForm from './JobPositions';
 import FormBuilder from './FormBuilder';
 import EventsView from './Events';
+import TrainingsView from './TrainingsView';
 function DashboardView() {
   const [activeSection, setActiveSection] = useState("dashboard"); 
 
@@ -101,6 +102,8 @@ function DashboardView() {
         {activeSection === "jobPositions" && <JobPositionForm />}
         {activeSection === "formBuilder" && <FormBuilder />}
         {activeSection === "events" && <EventsView />}
+        {activeSection === "trainings" && <TrainingsView />}
+
       </div>
     </div>
   );

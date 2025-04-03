@@ -67,7 +67,7 @@
   }
   .actions-cell{
     display: flex;
-    margin-top: -1rem;
+    margin-top: -0.01rem;
     position: relative;
   }
   

@@ -7,7 +7,7 @@ export default function DepartmentsView() {
   const [departments, setDepartments] = useState([]);
   const [filteredDepartments, setFilteredDepartments] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ name: '', head: '', employees: '' });
+  const [formData, setFormData] = useState({ name: '', vacancyType: '', purpose: '' });
   const [editId, setEditId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,14 +34,14 @@ export default function DepartmentsView() {
     } else {
       await axios.post('http://localhost:5009/departments/createDept', formData);
     }
-    setFormData({ name: '', head: '', employees: '' });
+    setFormData({ name: '', vacancyType: '', purpose: '' });
     setEditId(null);
     setShowForm(false);
     fetchDepartments();
   };
 
   const handleEdit = (dept) => {
-    setFormData({ name: dept.name, head: dept.head, employees: dept.employees });
+    setFormData({ name: dept.name, vacancyType: dept.vacancyType, purpose: dept.purpose });
     setEditId(dept._id);
     setShowForm(true);
   };
@@ -56,7 +56,7 @@ export default function DepartmentsView() {
     setSearchTerm(term);
     const filtered = departments.filter(dept =>
       dept.name.toLowerCase().includes(term) ||
-      dept.head.toLowerCase().includes(term)
+      dept.vacancyType.toLowerCase().includes(term)
     );
     setFilteredDepartments(filtered);
     setCurrentPage(1);
@@ -85,8 +85,8 @@ export default function DepartmentsView() {
       {showForm && (
         <form className="department-form" onSubmit={handleSubmit}>
           <input name="name" placeholder="Vacancy Name" value={formData.name} onChange={handleInputChange} required />
-          <input name="head" placeholder="Vacancy Type" value={formData.head} onChange={handleInputChange} required />
-          <input name="employees" placeholder="Purpose" type={formData.purpose} value={formData.employees} onChange={handleInputChange} required />
+          <input name="vacancyType" placeholder="Vacancy Type" value={formData.vacancyType} onChange={handleInputChange} required />
+          <input name="purpose" placeholder="Purpose" type={formData.purpose} value={formData.purpose} onChange={handleInputChange} required />
           <button type="submit">{editId ? 'Update' : 'Create'}</button>
         </form>
       )}
@@ -105,8 +105,8 @@ export default function DepartmentsView() {
             {currentItems.map((dept) => (
               <tr key={dept._id}>
                 <td>{dept.name}</td>
-                <td>{dept.head}</td>
-                <td>{dept.employees}</td>
+                <td>{dept.vacancyType}</td>
+                <td>{dept.purpose}</td>
                 <td className="actions-cell">
                   <button className="icon-btn edit-btn" onClick={() => handleEdit(dept)}><FaEdit color='007bff'/></button>
                   <button className="icon-btn delete-btn" onClick={() => handleDelete(dept._id)}><MdDelete color='red'/></button>
