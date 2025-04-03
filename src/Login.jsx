@@ -11,16 +11,38 @@ function Login({ handleRegister }) {
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
   //Added new states to add them in the forms
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [gender, setGender] = useState('');
   const [dob, setDob] = useState('');
+
+  //Validations for the date
+  const isToday = (dateString) => {
+    const today = new Date();
+    const inputDate = new Date(dateString);
+    return (
+      inputDate.getFullYear() === today.getFullYear() &&
+      inputDate.getMonth() === today.getMonth() &&
+      inputDate.getDate() === today.getDate()
+    );
+  };
+
+  const isFormValid = () => {
+    return (
+      username.trim() !== '' &&
+      password.trim() !== '' &&
+      gender !== '' &&
+      dob !== '' &&
+      !isToday(dob)
+    );
+  }
 
   const handleRegisterClick = async () => {
     try {
       const response = await axios.post('http://localhost:5009/users/register', {
         name: username,
         password: password,
-        userRole: "User"
+        userRole: "User",
+        gender: gender,
+        date: dob,
       });
 
       if (response.data) {
@@ -95,6 +117,7 @@ function Login({ handleRegister }) {
               type='button'
               className='register-button'
               onClick={handleRegisterClick}
+              disabled={!isFormValid()} //disables if form is invalid
             >
               Create Account
             </button>
