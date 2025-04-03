@@ -13,9 +13,9 @@ const Sidebar = ({ setActiveSection }) => {  // Accept setActiveSection as a pro
           <FaChartBar className="sidebar-icon" />
           <span>Dashboard</span>
         </li>
-        <li className="sidebar-item" onClick={() => setActiveSection("forms")}>
+        <li className="sidebar-item" onClick={() => setActiveSection("trainings")}>
           <FaClipboardList className="sidebar-icon" />
-          <span>Forms</span>
+          <span>Trainings</span>
         </li>
         <li className="sidebar-item" onClick={() => setActiveSection("applications")}>
           <IoIosApps className="sidebar-icon" />
@@ -33,9 +33,9 @@ const Sidebar = ({ setActiveSection }) => {  // Accept setActiveSection as a pro
           <IoIosApps className="sidebar-icon" />
           <span>Form Builder</span>
         </li>
-        <li className="sidebar-item" onClick={() => setActiveSection("analytics")}>
+        <li className="sidebar-item" onClick={() => setActiveSection("events")}>
           <MdAnalytics className="sidebar-icon" />
-          <span>Analytics</span>
+          <span>Events</span>
         </li>
         <li className="sidebar-item" onClick={() => setActiveSection("users")}>
           <FaUser className="sidebar-icon" />

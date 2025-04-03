@@ -5,11 +5,10 @@ import Settings from './Settings';
 import Applications from './Applications';
 import Users from './Users';
 import './dashboardStyles/dashboardView.css';
-import FormCreation from './FormCreation';
-import Analytics from './Analytics';
 import DepartmentsView from './Department';
 import JobPositionForm from './JobPositions';
 import FormBuilder from './FormBuilder';
+import EventsView from './Events';
 function DashboardView() {
   const [activeSection, setActiveSection] = useState("dashboard"); 
 
@@ -98,11 +97,10 @@ function DashboardView() {
         {activeSection === "settings" && <Settings />}
         {activeSection === "applications" && <Applications />} 
         {activeSection === "users" && <Users />}
-        {activeSection === "forms" && <FormCreation />}
-        {activeSection === "analytics" && <Analytics />}
         {activeSection === "departments" && <DepartmentsView />}
         {activeSection === "jobPositions" && <JobPositionForm />}
         {activeSection === "formBuilder" && <FormBuilder />}
+        {activeSection === "events" && <EventsView />}
       </div>
     </div>
   );

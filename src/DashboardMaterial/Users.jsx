@@ -4,18 +4,7 @@ import "./dashboardStyles/users.css";
 const Users = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const usersData = [
-    { name: "Alice Johnson", role: "Admin", status: "Active" },
-    { name: "Bob Smith", role: "Manager", status: "Inactive" },
-    { name: "Charlie Brown", role: "Employee", status: "Active" },
-    { name: "Diana Prince", role: "Admin", status: "Active" },
-    { name: "Ethan Hunt", role: "Employee", status: "Inactive" },
-    { name: "Fiona Gallagher", role: "Manager", status: "Active" },
-    { name: "George Lucas", role: "Employee", status: "Active" },
-    { name: "Hannah Baker", role: "Admin", status: "Inactive" },
-    { name: "Ian McKellen", role: "Manager", status: "Active" },
-    { name: "Jack Sparrow", role: "Employee", status: "Inactive" },
-  ];
+
 
   return (
     <div className="users-container">
