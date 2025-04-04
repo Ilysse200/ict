@@ -37,10 +37,6 @@ const Sidebar = ({ setActiveSection }) => {  // Accept setActiveSection as a pro
           <MdAnalytics className="sidebar-icon" />
           <span>Events</span>
         </li>
-        <li className="sidebar-item" onClick={() => setActiveSection("users")}>
-          <FaUser className="sidebar-icon" />
-          <span>Users</span>
-        </li>
         <li className="sidebar-item" onClick={() => setActiveSection("settings")}>
           <FaCog className="sidebar-icon" />
           <span>Settings</span>

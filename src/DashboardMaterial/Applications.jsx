@@ -5,14 +5,26 @@ import "./dashboardStyles/applications.css";
 const Applications = () => {
   const [submissions, setSubmissions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [blueprints, setBlueprints] = useState({}); // new
 
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const res = await axios.get("http://localhost:5009/submissions/formFetch");
+        const res = await axios.get("http://localhost:5009/formBuild/allblueprints");
         setSubmissions(res.data);
+
+        // Fetch blueprint for each unique vacancyType
+        const types = [...new Set(res.data.map((s) => s.vacancyType).filter(Boolean))];
+        console.log("📦 Blueprint request types:", types);
+        const blueprintData = {};
+        for (const type of types) {
+          const response = await axios.get(`http://localhost:5009/formBuild/blueprint/${type}`);
+          blueprintData[type] = response.data.fields || [];
+        }
+        
+        setBlueprints(blueprintData);
       } catch (err) {
-        console.error("Error fetching applications:", err);
+        console.error("❌ Error fetching applications or blueprints:", err);
       }
     };
 
@@ -20,7 +32,7 @@ const Applications = () => {
   }, []);
 
   const filteredSubmissions = submissions.filter((submission) =>
-    submission.jobTitle?.toLowerCase().includes(searchTerm.toLowerCase())
+    submission.vacancyType?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -30,7 +42,7 @@ const Applications = () => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="🔍 Search by job title"
+          placeholder="🔍 Search by category"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -41,28 +53,45 @@ const Applications = () => {
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Job Position</th>
+            <th>Category</th>
           </tr>
         </thead>
         <tbody>
           {filteredSubmissions.map((submission, index) => {
-            const nameField = submission.fields.find(
-              (f) => f.label.toLowerCase().includes("name")
+            const nameField = submission.fields?.find(f =>
+              /full\s*name|name/i.test(f.label)
             );
-            const emailField = submission.fields.find(
-              (f) => f.label.toLowerCase().includes("email")
+            
+            const emailField = submission.fields?.find(f =>
+              /email/i.test(f.label)
             );
 
             return (
               <tr key={index}>
                 <td>{nameField?.value || "N/A"}</td>
                 <td>{emailField?.value || "N/A"}</td>
-                <td>{submission.jobTitle || "N/A"}</td>
+                <td>{submission.vacancyType || "N/A"}</td>
               </tr>
             );
           })}
         </tbody>
       </table>
+
+      <div className="blueprint-display">
+        {/* <h3>📋 Saved Form Fields by Category</h3> */}
+        {Object.entries(blueprints).map(([type, fields]) => (
+          <div key={type}>
+            <h4>{type}</h4>
+            <ul>
+              {fields.map((field, idx) => (
+                <li key={idx}>
+                  <strong>{field.label}</strong> ({field.type})
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
 
       <div className="pagination">
         <button>{"<"}</button>

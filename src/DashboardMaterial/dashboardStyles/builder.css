@@ -118,21 +118,21 @@
     display: flex;
     flex-direction: row;
     padding: 0%;
-    margin-left: 21.77rem;
+    margin-left: 25.77rem;
     /* position: absolute;
     top: 8px;
     right: 8px; */
   }
   
   .field-actions button {
-    margin-top: -6.68rem;
+    margin-top: -2rem;
     background: none;
     border: none;
   }
   
   .field-settings input,
   .field-settings select {
-    width: 100%;
+    width: 20%;
     padding: 0.4rem;
     margin-bottom: 0.75rem;
     border: 1px solid #ccc;

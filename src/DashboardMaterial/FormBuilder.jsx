@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState } from 'react';
 import './dashboardStyles/builder.css';
 import axios from 'axios';
 import { FaEdit } from "react-icons/fa";
@@ -7,8 +7,7 @@ import { MdDelete } from "react-icons/md";
 export default function FormBuilder() {
   const [fields, setFields] = useState([]);
   const [selectedField, setSelectedField] = useState(null);
-  const [jobs, setJobs] = useState([]);
-  const [selectedJobId, setSelectedJobId] = useState('');
+  const [vacancyType, setVacancyType] = useState('');
 
   const fieldTypes = [
     { type: 'text', label: 'Text Input' },
@@ -18,12 +17,6 @@ export default function FormBuilder() {
     { type: 'dropdown', label: 'Dropdown' },
     { type: 'file', label: 'File Upload' }
   ];
-
-  useEffect(() => {
-    axios.get('http://localhost:5009/jobs/displayJobs')
-      .then((res) => setJobs(res.data))
-      .catch((err) => console.error("Error fetching jobs:", err));
-  }, []);
 
   const addField = (type) => {
     const newField = {
@@ -56,16 +49,16 @@ export default function FormBuilder() {
   };
 
   const handleSaveForm = async () => {
-    if (!selectedJobId) {
-      alert("Please select a job position before saving the form.");
+    if (!vacancyType) {
+      alert("Please select a vacancy type before saving the form.");
       return;
     }
     try {
       const payload = {
-        jobId: selectedJobId,
+        vacancyType,
         fields: fields.map(({ id, ...rest }) => rest)
       };
-      await axios.post('http://localhost:5009/formBuild/createBluePrint', payload);
+      await axios.post('http://localhost:5009/formBuild/blueprint', payload);
       alert("Form saved successfully!");
     } catch (error) {
       console.error("Error saving form:", error);
@@ -95,12 +88,12 @@ export default function FormBuilder() {
         <main className="builder-main">
           <h3>Form Canvas</h3>
           <div className="job-selector">
-            <label>Select Job Position:</label>
-            <select value={selectedJobId} onChange={(e) => setSelectedJobId(e.target.value)}>
-              <option value="">-- Select Job --</option>
-              {jobs.map((job) => (
-                <option key={job._id} value={job._id}>{job.title}</option>
-              ))}
+            <label>Select Vacancy Type:</label>
+            <select value={vacancyType} onChange={(e) => setVacancyType(e.target.value)}>
+              <option value="">-- Select Type --</option>
+              <option value="Jobs">Jobs</option>
+              <option value="Trainings">Trainings</option>
+              <option value="Events">Events</option>
             </select>
           </div>
 

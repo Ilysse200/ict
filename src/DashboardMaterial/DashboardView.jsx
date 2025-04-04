@@ -97,7 +97,6 @@ function DashboardView() {
 
         {activeSection === "settings" && <Settings />}
         {activeSection === "applications" && <Applications />} 
-        {activeSection === "users" && <Users />}
         {activeSection === "departments" && <DepartmentsView />}
         {activeSection === "jobPositions" && <JobPositionForm />}
         {activeSection === "formBuilder" && <FormBuilder />}

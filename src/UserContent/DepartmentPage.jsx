@@ -4,70 +4,88 @@ import axios from 'axios';
 import './userStyles/department.css';
 
 const DepartmentsPage = () => {
-  const [groupedDepartments, setGroupedDepartments] = useState([]);
+  const [vacancies, setVacancies] = useState({ Events: [], Trainings: [], Jobs: [] });
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchJobs = async () => {
+    const fetchAll = async () => {
       try {
-        const response = await axios.get('http://localhost:5009/jobs/displayJobs');
-        const jobs = response.data;
+        const [jobsRes, trainingsRes, eventsRes] = await Promise.all([
+          axios.get('http://localhost:5009/jobs/displayJobs'),
+          axios.get('http://localhost:5009/programs/allTrainings'),
+          axios.get('http://localhost:5009/eventsVacancy/fetchEvent')
+        ]);
 
-        // Group by department name
-        const grouped = jobs.reduce((acc, job) => {
-          const deptName = job.department?.name || 'Unknown Department';
-          if (!acc[deptName]) {
-            acc[deptName] = [];
-          }
-          acc[deptName].push({ title: job.title, _id: job._id });
-          return acc;
-        }, {});
+        const jobs = jobsRes.data.data || jobsRes.data;
+        const trainings = trainingsRes.data.data || trainingsRes.data;
+        const events = eventsRes.data.data || eventsRes.data;
 
-        // Convert to array for rendering
-        const departmentList = Object.entries(grouped).map(([department, jobPositions]) => ({
-          department,
-          jobPositions,
-        }));
+        console.log("🟡 Jobs:", jobs);
+        console.log("🔵 Trainings:", trainings);
+        console.log("🔴 Events:", events);
 
-        setGroupedDepartments(departmentList);
+        const filterByVacancy = (data, type) => {
+          if (!Array.isArray(data)) return [];
+        
+          return data.filter((item) => {
+            console.log('🔍 Checking item:', item); // Full item
+            console.log('➡️  item.department:', item.department); // Populated department
+            console.log('➡️  item.department.vacancyType:', item?.department?.vacancyType); // The target
+            return item?.department?.vacancyType === type;
+          });
+        };
+        
+
+        setVacancies({
+          Events: filterByVacancy(events, 'Events'),
+          Trainings: filterByVacancy(trainings, 'Trainings'),
+          Jobs: filterByVacancy(jobs, 'Jobs')
+        });
+
       } catch (error) {
-        console.error('Error fetching job positions:', error);
+        console.error("❌ Error fetching data:", error);
       }
     };
 
-    fetchJobs();
+    fetchAll();
   }, []);
 
-  const handleJobClick = (department, jobPosition) => {
-    sessionStorage.setItem(
-      'selectedJob',
-      JSON.stringify({
-        department,
-        jobId: jobPosition._id,
-        jobTitle: jobPosition.title // ✅ must be the correct MongoDB _id
-      })
-    );
+  const handleClick = (type, item) => {
+    const enriched = {
+      ...item,
+      vacancyType: type,
+      vacancyId: item._id, // Alias for clarity
+      jobTitle: item.title || item.eventName || item.trainingName || 'Unknown',
+    };
+    sessionStorage.setItem('selectedJob', JSON.stringify(enriched));
     navigate('/apply');
   };
 
   return (
     <section className="departments" id="departments">
-      <h2>Explore Job Opportunities</h2>
+      <h2>Explore our Events</h2>
       <div className="department-grid">
-        {groupedDepartments.map((dept, index) => (
-          <div className="department-card" key={index}>
-            <h3>{dept.department}</h3>
-            <div className="job-list">
-              {dept.jobPositions.map((job, jIndex) => (
-                <div
-                  key={jIndex}
-                  className="job-card"
-                  onClick={() => handleJobClick(dept.department, job)}
-                >
-                  {job.title} ➤
-                </div>
-              ))}
-            </div>
+        {vacancies.Events.map((event, index) => (
+          <div key={index} className="job-card" onClick={() => handleClick('Events', event)}>
+            {event.eventName}
+          </div>
+        ))}
+      </div>
+
+      <h2>Explore our Trainings</h2>
+      <div className="department-grid">
+        {vacancies.Trainings.map((training, index) => (
+          <div key={index} className="job-card" onClick={() => handleClick('Trainings', training)}>
+            {training.trainingName}
+          </div>
+        ))}
+      </div>
+
+      <h2>Explore our Jobs</h2>
+      <div className="department-grid">
+        {vacancies.Jobs.map((job, index) => (
+          <div key={index} className="job-card" onClick={() => handleClick('Jobs', job)}>
+            {job.title}
           </div>
         ))}
       </div>

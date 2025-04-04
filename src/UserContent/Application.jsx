@@ -13,22 +13,30 @@ const ApplyPage = () => {
     const stored = sessionStorage.getItem('selectedJob');
     if (stored) {
       const parsed = JSON.parse(stored);
-      console.log(JSON.parse(stored));
+      console.log("🌟 Selected Item:", parsed);
       setSelectedJob(parsed);
-      fetchForm(parsed.jobId);
+      fetchForm(parsed.vacancyType);
     }
   }, []);
 
-  const fetchForm = async (jobId) => {
+  const fetchForm = async (type) => {
+    if (!type) {
+      console.error("❌ Missing vacancyType for form fetch");
+      return;
+    }
+  
     try {
-      const response = await axios.get(`http://localhost:5009/formBuild/formBlueprints/${jobId}`);
+      const response = await axios.get(`http://localhost:5009/formBuild/blueprint/${type}`);
       if (response.data?.fields) {
         setFormFields(response.data.fields);
+      } else {
+        console.warn("⚠️ No form fields returned.");
       }
     } catch (error) {
-      console.error('Error loading form:', error);
+      console.error('❌ Error loading form:', error);
     }
   };
+  
 
   const handleChange = (e, fieldName) => {
     const { type, checked, value, files } = e.target;
@@ -44,32 +52,35 @@ const ApplyPage = () => {
     for (const [key, value] of Object.entries(formValues)) {
       data.append(key, value);
     }
-    data.append('jobId', selectedJob?.jobId);
-data.append('department', selectedJob?.department);
-data.append('jobTitle', selectedJob?.jobTitle); // ✅ This fixes "jobTitle is required"
-
+    data.append('jobId', selectedJob?._id);
+    data.append('vacancyType', selectedJob?.vacancyType);
+    data.append('jobTitle', selectedJob?.title || selectedJob?.eventName || selectedJob?.trainingName || ''); // smart fallback
+    data.append('department', selectedJob?.department?.name || ''); // in case it's available
 
     try {
       await axios.post('http://localhost:5009/submissions/formCreate', data);
-      alert('Application submitted!');
+      alert('✅ Application submitted!');
       navigate('/welcome');
     } catch (err) {
-      console.error('Submission failed:', err);
+      console.error('❌ Submission failed:', err);
       alert('Submission failed');
     }
   };
 
   return (
     <section className="apply-section">
-      <h2>Apply for Job</h2>
-  
+      <h2>Apply for Opportunity</h2>
+
       {selectedJob && (
         <div className="job-info-banner">
-          <p><strong>Department:</strong> {selectedJob.department}</p>
-          <p><strong>Job Title:</strong> {selectedJob.jobTitle || 'Unknown'}</p>
+          <p><strong>Type:</strong> {selectedJob.vacancyType}</p>
+          <p><strong>Title:</strong> {selectedJob.title || selectedJob.eventName || selectedJob.trainingName}</p>
+          {selectedJob?.department?.name && (
+            <p><strong>Department:</strong> {selectedJob.department.name}</p>
+          )}
         </div>
       )}
-  
+
       <form className="apply-form" onSubmit={handleSubmit}>
         {formFields.map((field, index) => (
           <div key={index} className="form-group">
@@ -102,6 +113,6 @@ data.append('jobTitle', selectedJob?.jobTitle); // ✅ This fixes "jobTitle is r
       </form>
     </section>
   );
-}
-  
+};
+
 export default ApplyPage;
